@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Legends</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Snow Effect -->
+    <div class="snow-container"></div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav class="container">
+            <div class="logo">Hockey Legends</div>
+            <ul class="menu">
+                <li><a href="#legends">Legends</a></li>
+                <li><a href="#gear">Gear</a></li>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>Welcome to Hockey Legends</h1>
+            <p>Explore the history, achievements, and gear of hockey legends.</p>
+            <a href="#legends" class="btn">Explore Legends</a>
+        </div>
+    </header>
+
+    <!-- Legends Section -->
+    <section id="legends" class="legends-section">
+        <h2>Legendary Players</h2>
+        <div class="legends-grid">
+            <div class="legend-card">
+                <img src="images/WayneGretzky.jpg" alt="Wayne Gretzky">
+                <h3>Wayne Gretzky</h3>
+                <p>Goals: 894 | Assists: 1963</p>
+            </div>
+            <div class="legend-card">
+                <img src="images/MarioLemieux.jpeg" alt="Mario Lemieux">
+                <h3>Mario Lemieux</h3>
+                <p>Goals: 690 | Assists: 1033</p>
+            </div>
+            <div class="legend-card">
+                <img src="images/SydneyCrosby.jpg" alt="Sydney Crosby">
+                <h3>Sidney Crosby</h3>
+                <p>Goals: 551 | Assists: 938</p>
+            </div>
+            
+            
+        </div>
+    </section>
+    
+    <!-- Gear Section -->
+    <section id="gear" class="gear-section">
+        <h2>Hockey Gear</h2>
+        <div class="gear-grid">
+            <div class="gear-card">
+                <img src="images/stick.jpg" alt="Hockey Stick">
+                <h3>Pro Stick</h3>
+                <p>$120.00</p>
+            </div>
+            <div class="gear-card">
+                <img src="images/helmet.jpg" alt="Helmet">
+                <h3>Helmet</h3>
+                <p>$75.00</p>
+            </div>
+            <div class="gear-card">
+                <img src="images/gloves.jpg" alt="Hockey Gloves">
+                <h3>Hockey Gloves</h3>
+                <p>$90.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matches Section -->
+    <section id="matches" class="matches-section">
+        <h2>Upcoming Matches</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Teams</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-12-01</td>
+                    <td>Team A vs Team B</td>
+                    <td>Stadium XYZ</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 Hockey Legends. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
