@@ -1,1 +1,1 @@
-# ice-hockey_landing-page
+# hockey-legends_landing-page
