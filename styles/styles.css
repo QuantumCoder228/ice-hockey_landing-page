@@ -10,14 +10,32 @@
     }
 }
 
+:root {
+    --main-color: #e67e22;
+    --secondary-color: #ffffff;
+    --background-opacity: rgba(0, 0, 0, 0.6);
+}
+
+
 /* Общий фон */
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background: url('images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
     color: #ffffff;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Градиент */
 }
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Тёмный прозрачный слой */
+    z-index: 0;
+}
+
 
 /* Snow Effect */
 .snow-container {
@@ -86,17 +104,25 @@ nav .menu a {
 }
 
 nav .menu a:hover {
-    background: #ff5722;
+    background: var(--main-color);
 }
 
-/* Hero Section */
 /* Hero Section */
 .hero {
     text-align: center;
     padding: 120px 0;
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный слой */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
+    url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    height: 100vh;
     position: relative;
+}
+
+.main-content {
+    background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Тот же градиент */
+    padding: 50px 20px;
 }
 
 .hero h1 {
@@ -120,7 +146,7 @@ nav .menu a:hover {
 
     /* Фон под секциями игроков и вещей */
 .legends-section, .gear-section {
-    background: rgba(0, 0, 0, 0.6); /* Прозрачный тёмный фон */
+    background: rgba(0, 0, 0, 0.7); /* Сохранение серого блока */
     padding: 50px 20px; /* Отступы для удобства */
     border-radius: 10px; /* Скруглённые углы */
     margin: 20px auto; /* Центровка */
@@ -185,10 +211,6 @@ form {
         transition: background-color 0.3s ease;
     }
     
-    nav .menu a:hover {
-        background: #ff5722;
-    }
-    
     /* Hero Section */
     .hero {
         height: 100vh;
@@ -242,8 +264,8 @@ form {
     
 
     /* Legends Section */
-.gear-card img, 
-.matches-section img {
+    .gear-card img, 
+    .matches-section img {
     max-width: 500px; /* Фиксированная ширина */
     height: 500px; /* Фиксированная высота */
     object-fit: cover; /* Заполняет контейнер, обрезая изображение, если необходимо */
@@ -253,7 +275,7 @@ form {
 }
 
 /* Центровка карточек (если нужно) */
-.gear-card img {
+    .gear-card img {
     width: 80%; /* Увеличено до 80% ширины карточки */
     height: auto; /* Высота автоматически */
     object-fit: contain; /* Сохранение пропорций */
