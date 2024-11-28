@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Эффект снега
+    // Snow Effect
     const snowContainer = document.querySelector('.snow-container');
     for (let i = 0; i < 100; i++) {
         const snow = document.createElement('div');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         snowContainer.appendChild(snow);
     }
 
-    // Плавный скролл при клике на ссылки
+    // Smooth Scroll for Navigation Links
     const links = document.querySelectorAll('nav .menu a');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Кнопка "Back to Top"
+    // Back to Top Button
     const backToTopButton = document.querySelector('.back-to-top');
 
     window.addEventListener('scroll', () => {
@@ -32,32 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
             backToTopButton.style.display = 'flex';
             setTimeout(() => {
                 backToTopButton.style.opacity = '1';
-            }, 10); // Небольшая задержка для перехода opacity
+            }, 10); // Slight delay for opacity transition
         } else {
             backToTopButton.style.opacity = '0';
             setTimeout(() => {
                 backToTopButton.style.display = 'none';
-            }, 300); // Соответствует времени перехода opacity
+            }, 300); // Matches the opacity transition duration
         }
     });
     
-    // Прокручиваем страницу вверх при нажатии на кнопку
+    // Scroll to Top on Button Click
     backToTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth', // Плавная прокрутка
+            behavior: 'smooth',
         });
     });
 
-    // Обработка формы контактов
+    // Contact Form Handling
     const contactForm = document.querySelector('.contact-section form');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            // Здесь можно добавить отправку данных на сервер через AJAX
+            // Here you can add AJAX form submission if needed
             contactForm.reset();
-            alert('Ваше сообщение отправлено!');
+            alert('Your message has been sent!');
         });
     }
 });

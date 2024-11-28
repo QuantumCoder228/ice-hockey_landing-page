@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hockey Legends</title>
-    <!-- Подключение внешнего CSS -->
+    <title>Ice Hockey Landing Page</title>
+    <!-- External CSS -->
     <link rel="stylesheet" href="styles/styles.css">
-    <!-- Подключение Google Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Подключение Google Material Icons -->
+    <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Подключение внешнего JavaScript с атрибутом defer -->
+    <!-- External JavaScript with defer -->
     <script src="scripts/script.js" defer></script>
 </head>
 <body>
@@ -24,6 +24,7 @@
                 <div class="logo">Hockey Legends</div>
                 <ul class="menu">
                     <li><a href="#legends">Legends</a></li>
+                    <li><a href="#hall-of-fame">Hall of Fame</a></li>
                     <li><a href="#gear">Gear</a></li>
                     <li><a href="#matches">Matches</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -35,6 +36,7 @@
             <h1>Welcome to Hockey Legends</h1>
             <p>Explore the history, achievements, and gear of hockey legends.</p>
             <a href="#legends" class="btn">Explore Legends</a>
+            <a href="https://quantumcoder228.github.io/ice-hockey_landing-page/" class="btn demo-btn" target="_blank">Live Demo</a>
         </div>
     </header>
 
@@ -42,20 +44,32 @@
     <section id="legends" class="legends-section">
         <h2>Legendary Players</h2>
         <div class="legends-grid">
+            <!-- Wayne Gretzky Card -->
             <div class="legend-card">
                 <img src="images/WayneGretzky.jpg" alt="Wayne Gretzky">
                 <h3>Wayne Gretzky</h3>
                 <p>Goals: 894 | Assists: 1963</p>
+                <p>Often regarded as the greatest hockey player of all time, Gretzky's vision and scoring ability revolutionized the game.</p>
             </div>
+            <!-- Alexander Ovechkin Card -->
             <div class="legend-card">
-                <img src="images/MarioLemieux.jpeg" alt="Mario Lemieux">
-                <h3>Mario Lemieux</h3>
-                <p>Goals: 690 | Assists: 1033</p>
+                <img src="images/Ovechkin.jpg" alt="Alexander Ovechkin">
+                <h3>Alexander Ovechkin</h3>
+                <p>Goals: 730+ | Assists: 550+</p>
+                <p>A modern-day legend, Ovechkin is known for his incredible goal-scoring prowess and leadership on the ice.</p>
             </div>
-            <div class="legend-card">
-                <img src="images/SydneyCrosby.jpg" alt="Sidney Crosby">
-                <h3>Sidney Crosby</h3>
-                <p>Goals: 551 | Assists: 938</p>
+        </div>
+    </section>
+
+    <!-- Hall of Fame Section -->
+    <section id="hall-of-fame" class="hall-of-fame-section">
+        <h2>Hockey Hall of Fame</h2>
+        <div class="hall-of-fame-grid">
+            <div class="hall-of-fame-card">
+                <img src="images/hall_of_fame.jpg" alt="Hockey Hall of Fame">
+                <h3>Hockey Hall of Fame</h3>
+                <p>The Hockey Hall of Fame, located in Toronto, honors the greatest players, coaches, and contributors to the sport.</p>
+                <a href="https://www.hhof.com/" target="_blank" class="btn">Learn More</a>
             </div>
         </div>
     </section>
@@ -99,6 +113,7 @@
                     <td>Team A vs Team B</td>
                     <td>Stadium XYZ</td>
                 </tr>
+                <!-- Add more matches as needed -->
             </tbody>
         </table>
     </section>
