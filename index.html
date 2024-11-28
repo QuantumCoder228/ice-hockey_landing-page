@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hockey Legends</title>
+    <!-- Подключение внешнего CSS -->
     <link rel="stylesheet" href="styles/styles.css">
+    <!-- Подключение Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Подключение Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Подключение внешнего JavaScript с атрибутом defer -->
+    <script src="scripts/script.js" defer></script>
 </head>
 <body>
     <!-- Snow Effect -->
@@ -14,15 +19,18 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <nav class="container">
-            <div class="logo">Hockey Legends</div>
-            <ul class="menu">
-                <li><a href="#legends">Legends</a></li>
-                <li><a href="#gear">Gear</a></li>
-                <li><a href="#matches">Matches</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <nav>
+            <div class="container">
+                <div class="logo">Hockey Legends</div>
+                <ul class="menu">
+                    <li><a href="#legends">Legends</a></li>
+                    <li><a href="#gear">Gear</a></li>
+                    <li><a href="#matches">Matches</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </nav>
+        
         <div class="hero-content">
             <h1>Welcome to Hockey Legends</h1>
             <p>Explore the history, achievements, and gear of hockey legends.</p>
@@ -45,12 +53,10 @@
                 <p>Goals: 690 | Assists: 1033</p>
             </div>
             <div class="legend-card">
-                <img src="images/SydneyCrosby.jpg" alt="Sydney Crosby">
+                <img src="images/SydneyCrosby.jpg" alt="Sidney Crosby">
                 <h3>Sidney Crosby</h3>
                 <p>Goals: 551 | Assists: 938</p>
             </div>
-            
-            
         </div>
     </section>
     
@@ -107,12 +113,14 @@
             <button type="submit">Send Message</button>
         </form>
     </section>
-    
-
+      
     <footer>
         <p>&copy; 2024 Hockey Legends. All Rights Reserved.</p>
     </footer>
 
-    <script src="scripts/script.js"></script>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <span class="material-icons">arrow_upward</span>
+    </div>
 </body>
 </html>

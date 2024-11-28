@@ -1,21 +1,8 @@
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 20px; /* Уменьшение отступов */
-    }
-
-    .contact-section input, 
-    .contact-section textarea, 
-    .contact-section button {
-        font-size: 0.9rem; /* Уменьшение шрифта */
-    }
-}
-
 :root {
     --main-color: #e67e22;
     --secondary-color: #ffffff;
     --background-opacity: rgba(0, 0, 0, 0.6);
 }
-
 
 /* Общий фон */
 body {
@@ -23,6 +10,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Градиент */
+    position: relative; /* Для позиционирования псевдоэлемента */
+    min-height: 100vh;
+    overflow-x: hidden; /* Избежать горизонтальной прокрутки */
 }
 
 body::before {
@@ -35,7 +25,6 @@ body::before {
     background: rgba(0, 0, 0, 0.5); /* Тёмный прозрачный слой */
     z-index: 0;
 }
-
 
 /* Snow Effect */
 .snow-container {
@@ -70,28 +59,32 @@ body::before {
 
 /* Navigation */
 nav {
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
-    position: fixed;
-    top: 0; /* Фиксация сверху */
-    width: 100%;
-    z-index: 100; /* Чтобы навигация всегда оставалась сверху */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 nav .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ff5722;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    color: var(--main-color);
+    margin-left: 10px; /* Отступ от левого края */
 }
 
 nav .menu {
     display: flex;
     gap: 15px;
+    margin-right: 10px; /* Отступ от правого края */
 }
 
 nav .menu a {
@@ -109,341 +102,298 @@ nav .menu a:hover {
 
 /* Hero Section */
 .hero {
-    text-align: center;
-    padding: 120px 0;
-    color: #ffffff;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
-    url('images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #ffffff;
     height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
+                url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
     position: relative;
+    z-index: 2;
 }
 
-.main-content {
-    background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Тот же градиент */
-    padding: 50px 20px;
-}
-
-.hero h1 {
+.hero-content h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.hero .btn {
-    background: #e67e22;
+.hero-content p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.hero-content .btn {
+    background: var(--main-color);
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: none;
+    transition: background 0.3s ease;
 }
 
-.hero .btn:hover {
+.hero-content .btn:hover {
     background: #d35400;
 }
 
-    /* Фон под секциями игроков и вещей */
-.legends-section, .gear-section {
-    background: rgba(0, 0, 0, 0.7); /* Сохранение серого блока */
-    padding: 50px 20px; /* Отступы для удобства */
-    border-radius: 10px; /* Скруглённые углы */
-    margin: 20px auto; /* Центровка */
-    max-width: 1200px; /* Ограничение ширины */
-    z-index: 2; /* Обеспечивает отображение перед снежинками */
+/* Section Headers */
+section {
+    background: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin: 80px auto 20px auto; /* Добавлен верхний отступ, чтобы не перекрывался фиксированный навбар */
+    max-width: 1200px;
+    z-index: 2;
     position: relative;
 }
 
-    
-    matches-section {
-        text-align: center;
-        margin: 50px 20px;
-    }
-    /* Forms */
-form {
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+/* Legends Section */
+.legends-grid {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.legend-card {
+    max-width: 300px;
+    padding: 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.legend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.legend-card img {
     width: 100%;
-    max-width: 400px;
-    margin: auto;
-}
-
-/* Buttons */
-.btn {
-    background-color: orange;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-    /* Navigation */
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background: rgba(0, 0, 0, 0.8);
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-    }
-    
-    nav .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #ff5722;
-    }
-    
-    nav .menu {
-        display: flex;
-        gap: 15px;
-    }
-    
-    nav .menu a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 500;
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-    
-    /* Hero Section */
-    .hero {
-        height: 100vh;
-        background: url('../images/background.jpg') no-repeat center center/cover;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #fff;
-    }
-    
-    .hero-content h1 {
-        font-size: 3rem;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-    
-    .hero-content p {
-        font-size: 1.5rem;
-        margin: 20px 0;
-    }
-    
-    .hero-content .btn {
-        background: #ff5722;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-transform: uppercase;
-        font-weight: bold;
-        transition: background 0.3s ease;
-    }
-    
-    .hero-content .btn:hover {
-        background: #e64a19;
-    }
-    
-    /* Section Headers */
-    section {
-        background: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-        padding: 50px 20px;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 1200px;
-    }
-    
-    img {
-        max-width: 100%; /* Максимальная ширина равна ширине родительского элемента */
-        height: auto; /* Сохранение пропорций */
-        object-fit: cover; /* Корректное заполнение */
-    }
-    
-
-    /* Legends Section */
-    .gear-card img, 
-    .matches-section img {
-    max-width: 500px; /* Фиксированная ширина */
-    height: 500px; /* Фиксированная высота */
-    object-fit: cover; /* Заполняет контейнер, обрезая изображение, если необходимо */
-    border-radius: 10px; /* Если нужно, можно добавить скругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для визуального эффекта */
-    margin: 0 auto; /* Центровка изображений */
-}
-
-/* Центровка карточек (если нужно) */
-    .gear-card img {
-    width: 80%; /* Увеличено до 80% ширины карточки */
-    height: auto; /* Высота автоматически */
-    object-fit: contain; /* Сохранение пропорций */
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
     border-radius: 10px;
     margin: 0 auto;
 }
 
+.legend-card h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
 
-    .legends-grid {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    
-    .legend-card {
-        max-width: 300px;
-        padding: 15px;
-        text-align: center;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    
-    .legend-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
-    
-    .legend-card img {
-        width: 100%; /* Масштабировать по ширине контейнера */
-        max-width: 300px; /* Максимальная ширина */
-        height: auto; /* Автоматическая высота для сохранения пропорций */
-        object-fit: cover; /* Заполняет контейнер */
-        border-radius: 10px; /* Скругленные углы */
-        margin: 0 auto; /* Центрирование */
-    }
-    
-    
-    .legend-card h3 {
-        margin: 10px 0;
-        font-size: 1rem;
-    }
-    
-    .legend-card p {
-        margin: 10px 0;
-        font-size: 1rem;
-    }
+.legend-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
 
-    /* Gear Section */
-    .gear-grid {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        padding: 0 20px
-    }
-    
-    .gear-card {
-        max-width: 300px;
-        padding: 15px;
-        text-align: center;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    
-    .gear-card img {
-        width: 100%; /* Масштабировать по ширине контейнера */
-        max-width: 300px; /* Максимальная ширина */
-        height: auto; /* Автоматическая высота для сохранения пропорций */
-        object-fit: cover; /* Заполняет контейнер */
-        border-radius: 10px; /* Скругленные углы */
-        margin: 0 auto; /* Центрирование */
-    }
-    
-    .gear-card h3 {
-        margin: 10px 0;
-        font-size: 1rem;
-    }
+/* Gear Section */
+.gear-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
 
-    .gear-card p {
-        margin: 10px 0;
-        font-size: 1rem;
-    }
+.gear-card {
+    max-width: 300px;
+    padding: 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    /* Matches Section */
-    .matches-section table {
-        width: 80%;
-        margin: 0 auto;
-        border-collapse: collapse;
-    }
-    
-    .matches-section th, .matches-section td {
-        padding: 15px;
-        border: 1px solid #ffffff;
-    }
-    
-    .matches-section th {
-        background: #e67e22;
-    }
-        
-    .matches-section td {
-        background: rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Contact Section */
+.gear-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
 
+.gear-card img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.gear-card h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.gear-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Matches Section */
+.matches-section table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.matches-section th, .matches-section td {
+    padding: 15px;
+    border: 1px solid #ffffff;
+    text-align: center;
+}
+
+.matches-section th {
+    background: var(--main-color);
+}
+
+.matches-section td {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ffffff;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-section input, 
+.contact-section textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.contact-section textarea {
+    resize: none;
+    height: 120px;
+}
+
+.contact-section button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--main-color);
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-section button:hover {
+    background: #d35400;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #fff;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: var(--main-color);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none; /* Скрываем кнопку по умолчанию */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top .material-icons {
+    font-size: 24px;
+}
+
+.back-to-top:hover {
+    background-color: #d35400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .contact-section {
-        display: flex;
+        padding: 20px; /* Уменьшение отступов */
+    }
+
+    .contact-section input, 
+    .contact-section textarea, 
+    .contact-section button {
+        font-size: 0.9rem; /* Уменьшение шрифта */
+    }
+
+    nav .menu {
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 20px; /* Дополнительный отступ для мобильных */
+    }
+
+    .legends-grid, .gear-grid {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        margin: 50px auto;
-        max-width: 600px;
-        background: rgba(0, 0, 0, 0.6); /* Серый фон */
-        padding: 40px 20px; /* Увеличенные отступы */
-        border-radius: 10px; /* Скругленные углы */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
-    }
-    
-
-    .contact-section form {
-        width: 100%; /* Полная ширина */
-    }
-    .contact-section input, 
-    .contact-section textarea {
-        width: 100%; /* Полная ширина */
-        padding: 15px; /* Внутренние отступы */
-        margin-bottom: 15px; /* Расстояние между полями */
-        border: 1px solid rgba(255, 255, 255, 0.3); /* Легкая белая рамка */
-        border-radius: 5px; /* Скругленные углы */
-        background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
-        color: #fff; /* Белый текст */
-        font-size: 1rem; /* Увеличенный размер текста */
     }
 
-    .contact-section textarea {
-        resize: none; /* Отключение изменения размера */
-        height: 120px; /* Фиксированная высота */
+    .matches-section table {
+        width: 100%;
     }
-   
-    
-    .contact-section button {
-        width: 100%; /* Полная ширина */
-        padding: 15px;
-        font-size: 1.2rem; /* Увеличенный размер шрифта */
-        border: none;
-        border-radius: 5px;
-        background: #e67e22;
-        color: #ffffff;
-        cursor: pointer;
-        transition: background 0.3s ease;
+
+    .hero-content h1 {
+        font-size: 2rem;
     }
-    
-    .contact-section button:hover {
-        background: #d35400; /* Темнее при наведении */
+
+    .hero-content p {
+        font-size: 1.2rem;
     }
-    
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: #111;
-        color: #fff;
+
+    nav .logo {
+        margin-left: 20px; /* Увеличение отступа для мобильных */
     }
-    
-    background: #e64a19;
 }
