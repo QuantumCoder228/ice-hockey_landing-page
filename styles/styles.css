@@ -1,5 +1,6 @@
 :root {
     --main-color: #1e90ff; /* Dodger Blue */
+    --accent-color: #e67e22; /* Orange Accent */
     --secondary-color: #ffffff;
     --background-opacity: rgba(0, 0, 0, 0.6);
 }
@@ -124,6 +125,7 @@ nav .menu a:hover {
 .hero-content h1 {
     font-size: 3rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: var(--main-color); /* Blue Colored Heading */
 }
 
 .hero-content p {
@@ -170,7 +172,7 @@ section h2 {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5rem;
-    color: var(--main-color);
+    color: var(--main-color); /* Blue Colored Heading */
 }
 
 /* Legends Section */
@@ -207,7 +209,7 @@ section h2 {
 .legend-card h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
-    color: #e67e22; /* Orange Accent */
+    color: var(--accent-color); /* Orange Accent */
 }
 
 .legend-card p {
@@ -215,7 +217,7 @@ section h2 {
     color: #ffffff;
 }
 
-/* Hall of Fame Section */
+/* Hockey Hall of Fame Section */
 .hall-of-fame-grid {
     display: flex;
     justify-content: center;
@@ -249,21 +251,12 @@ section h2 {
 .hall-of-fame-card h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
-    color: #e67e22;
+    color: var(--accent-color);
 }
 
 .hall-of-fame-card p {
     font-size: 1rem;
     color: #ffffff;
-}
-
-.hall-of-fame-card .btn {
-    margin-top: 15px;
-    background: #3498db;
-}
-
-.hall-of-fame-card .btn:hover {
-    background: #2980b9;
 }
 
 /* Gear Section */
